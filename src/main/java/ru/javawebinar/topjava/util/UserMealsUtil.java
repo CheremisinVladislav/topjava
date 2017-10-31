@@ -39,7 +39,6 @@ public class UserMealsUtil {
         Map<LocalDate,List<UserMeal>> userMealByDate = mealList.stream().collect(Collectors.groupingBy((p)->p.getDateTime().toLocalDate()));
 
         Map<LocalDate,Integer> caloriesPerDayMap = new HashMap<>();
-
         for (Map.Entry<LocalDate,List<UserMeal>> pair:userMealByDate.entrySet()) {
            int sum = pair.getValue().stream().collect(Collectors.summingInt((p) -> p.getCalories()));
            caloriesPerDayMap.put(pair.getKey(),sum);
